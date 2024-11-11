@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>labThree</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2024-11-10">
+<meta name="DC.source" content="labThree.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<pre class="codeinput">
+<span class="comment">%Read in the original image using the imread command</span>
+OriginalImage = imread(<span class="string">"JetSkiAir.jpg"</span>);
+
+<span class="comment">%Part One</span>
+<span class="comment">%Create a single matlab file that contains a function that performs</span>
+<span class="comment">%each of the following:</span>
+<span class="comment">%Increase the brightness of the image by an integer value (can be fixed</span>
+<span class="comment">%value)</span>
+<span class="comment">%Invert the image</span>
+<span class="comment">%Transform the image to grayscale</span>
+<span class="comment">%Threshold the image based on an integer value (must first be in grayscale)</span>
+
+<span class="comment">%Change the title of the first figure</span>
+figure(<span class="string">'Name'</span>,<span class="string">'Point Operations Lab'</span>);
+
+<span class="comment">%Create another version of the image that increases</span>
+<span class="comment">%the brightness of the original image by 50</span>
+<span class="comment">%We just add 50 to the original image's value to increase</span>
+<span class="comment">%its brightness by 50 because it adds the value of 50 to each</span>
+<span class="comment">%element contained in its image array. In Matlab, 0 represents</span>
+<span class="comment">%black and 255 represents white so having a higher value makes</span>
+<span class="comment">%the image appear brighter. It should be mentioned that the values</span>
+<span class="comment">%are capped at 255 even if the addition of 50 to an element is higher</span>
+BrightenedImage = OriginalImage+50;
+
+<span class="comment">%Display the brightened image</span>
+<span class="comment">%The subplot command is used to determine where in the figure the</span>
+<span class="comment">%specific element will be plotted. In this case 2,2,1 is the top-left</span>
+<span class="comment">%part of the figure. We use imshow to choose which image is displayed</span>
+<span class="comment">%and the title command to choose what title appears above the image</span>
+subplot(2,2,1);
+imshow(BrightenedImage);
+title(<span class="string">'Increase Brightness by 50'</span>);
+
+<span class="comment">%Create the grayscale image</span>
+<span class="comment">%The rgb2gray command takes the values for each color channel present</span>
+<span class="comment">%in the image and converts them into a grayscale value. Essentially,</span>
+<span class="comment">%it takes the three color channels and converts it into one color channel.</span>
+GrayscaleImage = rgb2gray(OriginalImage);
+
+<span class="comment">%Display the grayscale image</span>
+<span class="comment">%The subplot command is being used again to determine where the image is</span>
+<span class="comment">%displayed in the figure. 2,2,3 represents the bottom-left of the figure.</span>
+<span class="comment">%The title command is used again to set what text is displayed above the</span>
+<span class="comment">%image</span>
+subplot(2,2,3);
+imshow(GrayscaleImage);
+title(<span class="string">'Grayscale Image'</span>);
+
+<span class="comment">%Invert the image</span>
+<span class="comment">%The way that we inverted the colors of the image is by taking the max</span>
+<span class="comment">%color channel value of 255 and subtracting each pixel value present within</span>
+<span class="comment">%the image from 255 to get its new pixel value.</span>
+InvertedImage = 255-OriginalImage;
+
+<span class="comment">%Display the inverted image</span>
+<span class="comment">%Subplot is being used to determine where the image shows up in the figure.</span>
+<span class="comment">%2,2,2 represents the top left of the figure. Then imshow determines what</span>
+<span class="comment">%image is displayed and the title command displays specific text above the</span>
+<span class="comment">%image</span>
+subplot(2,2,2);
+imshow(InvertedImage);
+title(<span class="string">'Inverted Image'</span>);
+
+<span class="comment">%Create threshold image the same size as grayscale one using the size</span>
+<span class="comment">%command. Also, use the zeros command to ensure only zeros are present in</span>
+<span class="comment">%the images matrix</span>
+ThresholdImage = zeros(size(GrayscaleImage));
+
+<span class="comment">%To help seperate the foreground and the background we assign an values</span>
+<span class="comment">%above 128 to 255 which is shown as black.</span>
+ThresholdImage (GrayscaleImage&gt;128) = 255;
+
+<span class="comment">%Display the threshold image</span>
+<span class="comment">%The subplot command determines where the image will be displayed in the</span>
+<span class="comment">%figure with 2,2,4 being the bottom-right slot. The imshow command chooses</span>
+<span class="comment">%what image is displayed and the title displays specific text above the</span>
+<span class="comment">%image.</span>
+subplot(2,2,4);
+imshow(ThresholdImage);
+title(<span class="string">'Threshold = 128'</span>);
+
+<span class="comment">%Part Two</span>
+<span class="comment">%Add a function that will auto-contrast the image, use the modified</span>
+<span class="comment">%auto-contrast function described in 4.4 (also read 4.3). (The percent</span>
+<span class="comment">%value you want to use for 'high' and 'low' is up to you</span>
+<span class="comment">%Display the output to a new figure</span>
+<span class="comment">%Create the Auto-Contrasted Image</span>
+
+<span class="comment">%Create the ImageVector by using the double command to convert its values</span>
+<span class="comment">%to the double floating-point number type</span>
+ImageVector = double(OriginalImage);
+
+<span class="comment">%Calculate the Low and High limits for contrast stretching ensuring they</span>
+<span class="comment">%are in the same data type as the ImageVector</span>
+LowLimit = double(prctile(ImageVector(:), 5));
+HighLimit = double(prctile(ImageVector(:), 95));
+
+<span class="comment">%Apply Auto-Contrast Stretching through using the formula and values we</span>
+<span class="comment">%calculated earlier.</span>
+AutoContrastImage = (ImageVector - LowLimit) * (255 / (HighLimit - LowLimit));
+
+<span class="comment">%Clamp the values to the valid range [0, 255]. We do this by making any</span>
+<span class="comment">%values less than 0 equal to 0 and any values greater than 255 to equal</span>
+<span class="comment">%255.</span>
+AutoContrastImage(AutoContrastImage &lt; 0) = 0;
+AutoContrastImage(AutoContrastImage &gt; 255) = 255;
+
+<span class="comment">%Convert back to uint8. This step is done to ensure the image values are</span>
+<span class="comment">%put back into the same form as they were originally.</span>
+AutoContrastImage = uint8(AutoContrastImage);
+
+<span class="comment">%Display the Auto-Contrasted Image. The figure command allows us to title</span>
+<span class="comment">%the figure. Then we use imshow to choose to display the correct image and</span>
+<span class="comment">%the title command to give it the proper title.</span>
+figure(<span class="string">'Name'</span>,<span class="string">'Auto-Contrasted Image'</span>);
+imshow(AutoContrastImage);
+title(<span class="string">'Auto Contrasted Image'</span>);
+</pre>
+<img vspace="5" hspace="5" src="labThree_01.png" alt=""> <img vspace="5" hspace="5" src="labThree_02.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%Read in the original image using the imread command 
+OriginalImage = imread("JetSkiAir.jpg");
+
+%Part One
+%Create a single matlab file that contains a function that performs 
+%each of the following:
+%Increase the brightness of the image by an integer value (can be fixed
+%value)
+%Invert the image
+%Transform the image to grayscale
+%Threshold the image based on an integer value (must first be in grayscale)
+
+%Change the title of the first figure 
+figure('Name','Point Operations Lab');
+
+%Create another version of the image that increases
+%the brightness of the original image by 50
+%We just add 50 to the original image's value to increase
+%its brightness by 50 because it adds the value of 50 to each
+%element contained in its image array. In Matlab, 0 represents 
+%black and 255 represents white so having a higher value makes
+%the image appear brighter. It should be mentioned that the values 
+%are capped at 255 even if the addition of 50 to an element is higher
+BrightenedImage = OriginalImage+50;
+
+%Display the brightened image
+%The subplot command is used to determine where in the figure the 
+%specific element will be plotted. In this case 2,2,1 is the top-left
+%part of the figure. We use imshow to choose which image is displayed 
+%and the title command to choose what title appears above the image
+subplot(2,2,1);
+imshow(BrightenedImage);
+title('Increase Brightness by 50');
+
+%Create the grayscale image
+%The rgb2gray command takes the values for each color channel present
+%in the image and converts them into a grayscale value. Essentially,
+%it takes the three color channels and converts it into one color channel.
+GrayscaleImage = rgb2gray(OriginalImage);
+
+%Display the grayscale image
+%The subplot command is being used again to determine where the image is
+%displayed in the figure. 2,2,3 represents the bottom-left of the figure.
+%The title command is used again to set what text is displayed above the
+%image
+subplot(2,2,3);
+imshow(GrayscaleImage);
+title('Grayscale Image');
+
+%Invert the image
+%The way that we inverted the colors of the image is by taking the max
+%color channel value of 255 and subtracting each pixel value present within
+%the image from 255 to get its new pixel value.
+InvertedImage = 255-OriginalImage;
+
+%Display the inverted image
+%Subplot is being used to determine where the image shows up in the figure.
+%2,2,2 represents the top left of the figure. Then imshow determines what
+%image is displayed and the title command displays specific text above the
+%image
+subplot(2,2,2);
+imshow(InvertedImage);
+title('Inverted Image');
+
+%Create threshold image the same size as grayscale one using the size
+%command. Also, use the zeros command to ensure only zeros are present in
+%the images matrix
+ThresholdImage = zeros(size(GrayscaleImage));
+
+%To help seperate the foreground and the background we assign an values
+%above 128 to 255 which is shown as black. 
+ThresholdImage (GrayscaleImage>128) = 255;
+
+%Display the threshold image
+%The subplot command determines where the image will be displayed in the
+%figure with 2,2,4 being the bottom-right slot. The imshow command chooses
+%what image is displayed and the title displays specific text above the
+%image.
+subplot(2,2,4);
+imshow(ThresholdImage);
+title('Threshold = 128');
+
+%Part Two
+%Add a function that will auto-contrast the image, use the modified
+%auto-contrast function described in 4.4 (also read 4.3). (The percent
+%value you want to use for 'high' and 'low' is up to you
+%Display the output to a new figure
+%Create the Auto-Contrasted Image
+
+%Create the ImageVector by using the double command to convert its values
+%to the double floating-point number type
+ImageVector = double(OriginalImage);
+
+%Calculate the Low and High limits for contrast stretching ensuring they
+%are in the same data type as the ImageVector 
+LowLimit = double(prctile(ImageVector(:), 5)); 
+HighLimit = double(prctile(ImageVector(:), 95));  
+
+%Apply Auto-Contrast Stretching through using the formula and values we
+%calculated earlier. 
+AutoContrastImage = (ImageVector - LowLimit) * (255 / (HighLimit - LowLimit));
+
+%Clamp the values to the valid range [0, 255]. We do this by making any
+%values less than 0 equal to 0 and any values greater than 255 to equal
+%255.
+AutoContrastImage(AutoContrastImage < 0) = 0; 
+AutoContrastImage(AutoContrastImage > 255) = 255;
+
+%Convert back to uint8. This step is done to ensure the image values are
+%put back into the same form as they were originally. 
+AutoContrastImage = uint8(AutoContrastImage);
+
+%Display the Auto-Contrasted Image. The figure command allows us to title
+%the figure. Then we use imshow to choose to display the correct image and
+%the title command to give it the proper title. 
+figure('Name','Auto-Contrasted Image');
+imshow(AutoContrastImage);
+title('Auto Contrasted Image');
+##### SOURCE END #####
+-->
+</body>
+</html>
